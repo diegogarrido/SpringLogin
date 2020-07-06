@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration Page</title>
+<body>
+	<h1>Register!</h1>
+	<p th:text="${error}"></p>
+	<form method="post">
+		<p>
+			<label>Email:</label> <input type="email" name="email" />
+		</p>
+		<p>
+			<label>Password:</label> <input type="password" name="password" />
+		</p>
+		<p>
+			<label>Password Confirmation:</label> <input type="password" name="passwordConfirmation" />
+		</p>
+		<input type="submit" value="Register!"/>
+	</form>
+</body>
+</html>
