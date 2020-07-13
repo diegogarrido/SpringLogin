@@ -45,7 +45,6 @@ public class UserController {
 
 	@GetMapping("/login")
 	public String login(HttpSession session) {
-		System.out.println(session.getAttribute("userId"));
 		if (session.getAttribute("userId") != null) {
 			return "redirect:/home";
 		} else {
@@ -79,6 +78,6 @@ public class UserController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("userId");
-		return "login";
+		return "redirect:/login";
 	}
 }
