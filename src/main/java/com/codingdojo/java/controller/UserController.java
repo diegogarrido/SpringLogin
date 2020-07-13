@@ -16,11 +16,7 @@ import com.codingdojo.java.service.UserService;
 public class UserController {
 
 	@Autowired
-	private final UserService userService;
-
-	public UserController(UserService userService) {
-		this.userService = userService;
-	}
+	private UserService userService;
 
 	@GetMapping("/")
 	public String index() {
