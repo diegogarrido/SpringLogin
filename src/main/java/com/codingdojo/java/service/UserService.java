@@ -12,11 +12,7 @@ import com.codingdojo.java.model.dao.UserDAO;
 @Service
 public class UserService {
 	@Autowired
-	private final UserDAO userDao;
-
-	public UserService(UserDAO userDao) {
-		this.userDao = userDao;
-	}
+	private UserDAO userDao;
 
 	public User registerUser(User user) {
 		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
@@ -42,6 +38,10 @@ public class UserService {
 		}
 	}
 
+	public boolean userExists(String email) {
+		return userDao.findByEmail(email).isPresent();
+	}
+	
 	public boolean authenticateUser(String email, String password) {
 		Optional<User> user = userDao.findByEmail(email);
 		if (!user.isPresent()) {
